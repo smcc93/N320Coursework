@@ -1,3 +1,13 @@
+function containsObject(obj, list) {
+  var i;
+  for (i = 0; i < list.length; i++) {
+    if (list[i] === obj) {
+      return true;
+    }
+  }
+  return false;
+}
+
 class Drop {
   constructor() {
     //randomize starting point of drops on x axis and set starting y
@@ -11,6 +21,8 @@ class Drop {
     circle(this.x, this.y, 5);
     //remove drops from ground
     if (this.y > 275) {
+      //this.y = 0;
+      rainManager.drops.splice(0, 1);
     }
   }
 }
@@ -41,15 +53,16 @@ class Ground {
   constructor(drops) {
     this.x = 0;
     this.y = 275;
-    this.blue = 250;
+    this.blue = 5;
     this.drops = drops;
+    this.dropsHit = [];
   }
 
   //start the drop hit count
 
   //update - draws the rectangle to the screen
   update() {
-    fill(255, 255, this.blue);
+    fill(0, 0, this.blue);
     rect(this.x, this.y, 400, 30);
     this.dropHit();
     //set the starting color
@@ -58,9 +71,11 @@ class Ground {
   dropHit() {
     for (var i = 0; i < this.drops.length; i++) {
       if (this.drops[i].y >= 275) {
-        this.drops = this.drops.splice(0, 1);
-        if (this.drops[i] % 10 == 0 && this.drops[i] != 0) {
-          this.blue - 5;
+        if (!containsObject(this.drops[i], this.dropsHit)) {
+          this.dropsHit.push(this.drops[i]);
+          if (this.dropsHit.length % 10 == 0 && this.dropsHit.length != 0) {
+            this.blue += 20;
+          }
         }
       }
     }
