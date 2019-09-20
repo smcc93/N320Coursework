@@ -1,4 +1,5 @@
 //create the class for the ball
+//the ball class uses a module pattern, you can reuse the code by creating a new instance of the class
 class Ball {
   constructor() {
     //initial position of ball
@@ -24,6 +25,7 @@ class Ball {
 }
 
 //if ball is beyond the canvas...
+//the world object uses the singleton pattern, there should only be one instance of the world even though things can change in it
 var World = {
   //starting background color
   bgcolor: [237, 119, 83],
@@ -40,6 +42,7 @@ var World = {
 };
 
 //class for a box
+// same as the ball class, the box class uses the module pattern
 class Box {
   constructor() {
     this.x = Math.random() * 400;
