@@ -1,0 +1,82 @@
+.bar {
+  opacity: 0;
+  height: 150px;
+  width: 100%;
+  background-color: rgb(5, 5, 75);
+  animation: boxBuildIn 5s;
+  animation-fill-mode: both;
+}
+.boxes {
+  opacity: 0;
+  width: 300px;
+  height: 150px;
+  margin: 25px;
+  padding: 15px;
+  background-color: purple;
+  animation: boxBuildIn 5s;
+  animation-fill-mode: both;
+}
+
+.boxOver {
+  animation: boxOverAnim 0.7s;
+  animation-fill-mode: both;
+}
+
+.boxOut {
+  animation: boxOutAnim 0.07s;
+  animation-fill-mode: both;
+}
+
+#boxWorld {
+  display: flex;
+  flex-flow: row wrap;
+  height: 300px;
+  width: 65%;
+  margin: 15%;
+}
+
+.boxGone {
+  background-color: white;
+  animation: removeBox 5s;
+  animation-fill-mode: both;
+}
+
+@keyframes boxBuildIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes boxOverAnim {
+  to {
+    opacity: 1;
+    background-color: purple;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes boxOutAnim {
+  from {
+    opacity: 1;
+    transform: scale(1.2);
+    background-color: purple;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    background-color: purple;
+  }
+}
+
+@keyframes removeBox {
+  from {
+    opacity: 1;
+    transform: rotateZ(180deg);
+  }
+  to {
+    opacity: 0;
+  }
+}
