@@ -8,11 +8,11 @@ var app = new Vue({
   el: "#app",
   data: {
     students: [
-      { name: "Sienna", skill: 2, joy: 2 },
+      { name: "Sienna", skill: 2, joy: 1 },
       { name: "Cyan", skill: 0, joy: 5 },
       { name: "Magenta", skill: 3, joy: 7 }
     ],
-    currentStudent: { name: "Sienna", skill: 2, joy: 2 },
+    currentStudent: { name: "Sienna", skill: 2, joy: 1 },
     curStudentId: 0,
     cardActive: true
   },
@@ -30,6 +30,9 @@ var app = new Vue({
         this.currentStudent = this.students[this.curStudentId];
 
         if (this.curStudentId >= this.students.length - 1) {
+          this.curStudentId = -1;
+        }
+        if (this.curStudentId == 2) {
           this.curStudentId = -1;
         }
 
