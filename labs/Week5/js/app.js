@@ -42,12 +42,20 @@ var app = new Vue({
 
       setTimeout(() => {
         this.currentStudent.joy--;
+
         this.curStudentId--;
         if (this.curStudentId < 0) {
           this.curStudentId = 2;
         }
-        this.currentStudent = this.students[this.curStudentId];
 
+        this.currentStudent = this.students[this.curStudentId];
+        if (this.currentStudent.joy <= 0) {
+          document.getElementById("emojiField").classList.remove("noEmoji");
+          document.getElementById("emojiField").classList.add("emoji");
+        } else {
+          document.getElementById("emojiField").classList.remove("emoji");
+          document.getElementById("emojiField").classList.add("noEmoji");
+        }
         this.cardActive = !this.cardActive;
       }, 300);
     }
