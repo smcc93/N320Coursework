@@ -34,8 +34,17 @@ var app = new Vue({
         this.checkWin();
       }
     },
-    checkWin: function() {
+    checkWin: function(row, col) {
       //loop through all columns to check
+      for (i = 0; i <= this.grid[row].length; i++) {
+        for (j = 0; j <= this.grid[col].length; j++) {
+          //check for 4 in a row, column, or diagonal
+          if (this.grid[row][col] !== 0) {
+            if (this.grid[row][col]) {
+            }
+          }
+        }
+      }
       //if win found set over to true
     },
 
