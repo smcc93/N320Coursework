@@ -1,0 +1,17 @@
+{
+  "gundams": [
+    {
+      "name": "Gundam: Iron-blooded Orphans",
+      "organizations": ["Tekkaden", "Gallerhorn", "Teiwaz"],
+      "MobileSuits": [
+        "Barbatos",
+        "Gusion Rebake",
+        "Ryusei-go",
+        "Shiden",
+        "Graze",
+        "Hyakuri",
+        "Hyakuren"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "type": "top three"
+  },
+  "candy": [
+    {
+      "name": "Kit Kat",
+      "rating": "good",
+      "chocolate": true,
+      "deliciousness": 70
+    },
+    {
+      "name": "Payday",
+      "rating": "good",
+      "chocolate": false,
+      "deliciousness": 240
+    },
+    {
+      "name": "Snickers",
+      "rating": "good",
+      "chocolate": true,
+      "deliciousness": 215
+    }
+  ]
+}
