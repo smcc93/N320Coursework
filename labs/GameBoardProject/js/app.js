@@ -33,26 +33,27 @@ var app = new Vue({
     ],
     //ships
     playerShips: {
-      Detroyer: { hits: 2, id: 1 },
-      Submarine: { hits: 3, id: 2 },
-      Cruiser: { hits: 3, id: 3 },
-      Battleship: { hits: 4, id: 4 },
-      AircraftCarrier: { hits: 5, id: 5 },
+      Detroyer: { type: "Destroyer", hits: 2, id: 1 },
+      Submarine: { type: "Submarine", hits: 3, id: 2 },
+      Cruiser: { type: "Cruiser", hits: 3, id: 3 },
+      Battleship: { type: "Battleship", hits: 4, id: 4 },
+      AircraftCarrier: { type: "Aircraft Carrier", hits: 5, id: 5 },
       Sunk: 0
     },
     AIShips: {
-      Detroyer: { hits: 2, id: 1 },
-      Submarine: { hits: 3, id: 2 },
-      Cruiser: { hits: 3, id: 3 },
-      Battleship: { hits: 4, id: 4 },
-      AircraftCarrier: { hits: 5, id: 5 },
+      Detroyer: { type: "Destroyer", hits: 2, id: 1 },
+      Submarine: { type: "Submarine", hits: 3, id: 2 },
+      Cruiser: { type: "Cruiser", hits: 3, id: 3 },
+      Battleship: { type: "Battleship", hits: 4, id: 4 },
+      AircraftCarrier: { type: "Aircraft Carrier", hits: 5, id: 5 },
       Sunk: 0
     }
   },
   methods: {
     selectCell: function(row, col) {
-      //copy gird
+      //copy grid
       var tempGrid = this.AIgrid.slice(0);
+
       //modify clone
       for (var row = 0; row < this.tempGrid.length; row++) {
         for (var col = 0; col < this.tempGrid[row].length; col++) {
@@ -62,7 +63,7 @@ var app = new Vue({
           } else {
             this.tempGrid[row][col].style.background = "#eb4034";
             var loc = this.tempGrid[row][col];
-
+            //run hit function
             this.hit();
             return loc;
           }
@@ -75,8 +76,11 @@ var app = new Vue({
       //swap player turns
       this.playerTurn = this.playerTurn == 1 ? 2 : 1;
 
+      //call function to check for win
       this.checkWin();
     },
+
+    //hit function to check for sunk ships
     hit: function(loc) {
       if (playerTurn == 1) {
         if (loc == AIShips.Detroyer.id) {
@@ -144,14 +148,18 @@ var app = new Vue({
         }
       }
     },
+
+    //check for win
     checkWin: function() {
       if (playerTurn == 1) {
         if (AIShips.Sunk == 5) {
           winner == 1;
+          gameOver = true;
         }
       } else {
         if (playerShips.Sunk == 5) {
           winner == 2;
+          gameOver = true;
         }
       }
     }

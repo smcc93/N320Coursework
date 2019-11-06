@@ -28,12 +28,32 @@
         align-items: center;
         justify-content: center;
       }
+      .gameSpace {
+        border: 5px solid black;
+        color: black;
+        font-weight: bold;
+      }
       .ships {
-        background-color: gray;
+        background-color: #2424ca;
+        border: 1px solid black;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+      }
+
+      .finished {
+        color: red;
+        font-weight: bold;
+        font-size: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     </style>
   </head>
-  <body>
+  <body style="background-color: gray;">
     <div id="app">
       <div v-if="gameOver" class="finished">Game Over</div>
       <div v-if="winner === 2">The Computer has won</div>
@@ -62,6 +82,16 @@
             >
               {{ item }}
             </div>
+          </div>
+          <!-- <div class="ships" v-for="ship in AIShips" v-bind:key="ship">
+            {{ ship }}
+          </div> -->
+          <div class="ships">
+            <p>Destroyer: 2</p>
+            <p>Cruiser: 3</p>
+            <p>Submarine: 3</p>
+            <p>Battleship: 4</p>
+            <p>Aircraft Carrier: 5</p>
           </div>
         </div>
       </div>
