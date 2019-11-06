@@ -19,7 +19,7 @@
         padding: 5px;
         cursor: pointer;
         border: 1px solid black;
-        /* font-size: 0px; */
+        font-size: 0px;
         background-color: blue;
       }
 
@@ -36,8 +36,8 @@
   <body>
     <div id="app">
       <div v-if="gameOver" class="finished">Game Over</div>
-      <div v-if="winner === 1">The Computer has won</div>
-      <div v-if="winner === 2">You have won</div>
+      <div v-if="winner === 2">The Computer has won</div>
+      <div v-if="winner === 1">You have won</div>
 
       <div>
         <div class="gameSpace">
