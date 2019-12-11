@@ -9,9 +9,10 @@ sounds.forEach((soundUrl, idx) => {
   //sounds
   var newSound = new Audio("sounds/" + soundUrl + ".mp3");
   soundElements.push(newSound);
+  soundUrl = soundUrl.split("_");
   //button
   var newButton = document.createElement("button");
-  newButton.innerHTML = soundUrl;
+  newButton.innerHTML = soundUrl[0];
 
   //store the sound index
   newButton.setAttribute("data-sound-id", idx);
