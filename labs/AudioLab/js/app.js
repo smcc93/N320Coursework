@@ -9,10 +9,15 @@ sounds.forEach((soundUrl, idx) => {
   //sounds
   var newSound = new Audio("sounds/" + soundUrl + ".mp3");
   soundElements.push(newSound);
-  soundUrl = soundUrl.split("_");
+
+  //one way to replace thw underscores
+  //soundUrl = soundUrl.replace(/[_-]/g, " ");
+  //remove the underscore and re-join the string
+  soundUrl = soundUrl.split("_").join(" ");
+
   //button
   var newButton = document.createElement("button");
-  newButton.innerHTML = soundUrl[0];
+  newButton.innerHTML = soundUrl;
 
   //store the sound index
   newButton.setAttribute("data-sound-id", idx);
